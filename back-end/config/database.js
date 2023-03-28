@@ -34,10 +34,8 @@ module.exports = function(){
 
     // Quando for detectado ocomando de interrupção Ctrl+C
     process.on('SIGINT', () => {
-        mongoose.connection.close(() => {
-            console.log('=> MONGOOSE! Desconectando ...')
-            // Encerra a aplicação sem erros
-            process.exit(0)
-        })
+       console.log('=> MONGOOSE! Desconectando ...')
+       mongoose.connection.close()
+       process.exit(0)        
     })
 }
